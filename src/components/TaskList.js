@@ -1,12 +1,16 @@
+import React from "react";
+import Task from "./Task";
+
 function TaskList({ tasks, onDeleteTask }) {
   return (
     <div className="tasks">
       {tasks.map(task => (
-        <div key={task.text} className="task">
-          <div className="label">{task.category}</div>
-          <div className="text">{task.text}</div>
-          <button className="delete" onClick={() => onDeleteTask(task.text)}>X</button>
-        </div>
+        <Task
+          key={task.text}
+          text={task.text}
+          category={task.category}
+          onDeleteTask={onDeleteTask}
+        />
       ))}
     </div>
   );
